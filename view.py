@@ -1,10 +1,15 @@
 import tkinter as tk
 
-root = tk.Tk()
-root.geometry("800x600")
-root.title("RaspberryPi Smarthome Controller")
 
-background_canvas = tk.Canvas(root, bg="dark green")
-background_canvas.pack(fill=tk.BOTH, expand=True)
+class MainApplication(tk.Frame):
+    def __init__(self, parent, *args, **kwargs):
+        tk.Frame.__init__(self, parent, *args, **kwargs)
+        self.parent = parent
 
-root.mainloop()
+        # <create the rest of your GUI here>
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    MainApplication(root).pack(side="top", fill="both", expand=True)
+    root.mainloop()
