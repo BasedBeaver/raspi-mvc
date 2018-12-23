@@ -1,4 +1,11 @@
+"""
+Run this from ssh to raspi:
+export DISPLAY=:0
+python3 rasp_smarthome_controller.py &
+"""
+
 import tkinter as tk
+import os
 
 
 class Model:
@@ -8,6 +15,7 @@ class Model:
 
     def magic_package(self):
         print("Turn On computer")
+        os.system('wakeonlan bc:5f:f4:64:f3:c0')
 
 
 class View(tk.Frame):
