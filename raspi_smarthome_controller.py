@@ -6,7 +6,8 @@ class Model:
     def desk_lamp(self):
         print("Add ethernet package")
 
-class view(tk.Frame):
+
+class View(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
@@ -29,7 +30,7 @@ class Controller:
         self.model = Model()
         self.root = tk.Tk()
         self.root.geometry("300x200")
-        view(self.root).pack(fill=tk.BOTH, expand=False)
+        View(self.root).pack(fill=tk.BOTH, expand=False)
 
     def run(self):
         self.root.title("RaspberryPi Smarthome Controller")
