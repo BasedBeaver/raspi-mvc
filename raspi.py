@@ -1,9 +1,3 @@
-"""
-Run this from ssh to raspi:
-export DISPLAY=:0
-python3 rasp_smarthome_controller.py &
-"""
-
 import tkinter as tk
 import os
 
