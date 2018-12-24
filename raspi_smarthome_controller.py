@@ -15,7 +15,7 @@ class Model:
 
     def magic_package(self):
         print("Turn On computer")
-        os.system('etherwake -b 192.168.1.255 bc:5f:f4:64:f3:c0')
+        os.system('sudo etherwake -b 192.168.1.255 bc:5f:f4:64:f3:c0')
 
 
 class View(tk.Frame):
