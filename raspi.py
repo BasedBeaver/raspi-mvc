@@ -36,21 +36,27 @@ class View(tk.Frame):
                                          borderwidth=0, command=self.magic_package)
         self.computer_button.pack(side="bottom", expand=True, fill=tk.BOTH)
 
-        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="white")
+        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="white", font=("Helvetica", 16))
         self.info_textfield.configure(state=tk.DISABLED, borderwidth=0)
         self.info_textfield.pack(fill=tk.BOTH, expand=True)
 
     def desk_lamp(self):
         self.info_textfield.config(state=tk.NORMAL)
-        self.info_textfield.insert(tk.END, 'Turn On/Off desk lamp')
+        self.info_textfield.insert(tk.END, '---Turn On/Off desk lamp---')
+        self.info_textfield.tag_configure("center", justify='center')
+        self.info_textfield.tag_add("center", 1.0, "end")
         self.info_textfield.insert(tk.END, '\n')
+        self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
         c.desk_lamp()
 
     def magic_package(self):
         self.info_textfield.config(state=tk.NORMAL)
-        self.info_textfield.insert(tk.END, 'Turn On computer')
+        self.info_textfield.insert(tk.END, '---Turn On computer---')
+        self.info_textfield.tag_configure("center", justify='center')
+        self.info_textfield.tag_add("center", 1.0, "end")
         self.info_textfield.insert(tk.END, '\n')
+        self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
         c.magic_package()
 
