@@ -36,7 +36,7 @@ class View(tk.Frame):
                                          borderwidth=0, command=self.magic_package)
         self.computer_button.pack(side="bottom", expand=True, fill=tk.BOTH)
 
-        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="dark green")
+        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="white")
         self.info_textfield.configure(state=tk.DISABLED, borderwidth=0)
         self.info_textfield.pack(fill=tk.BOTH, expand=True)
 
