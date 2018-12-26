@@ -71,6 +71,7 @@ class Controller:
     def __init__(self):
         self.model = Model()
         self.root = tk.Tk()
+        self.root.config(cursor="none")
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
 
