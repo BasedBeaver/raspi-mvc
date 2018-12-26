@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+import datetime as dt
 
 
 class Model:
@@ -41,20 +42,25 @@ class View(tk.Frame):
         self.info_textfield.pack(fill=tk.BOTH, expand=True)
 
     def desk_lamp(self):
+        time = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        string = '---' + str(time) + ': ' + 'Turn On/Off desk lamp---'
         self.info_textfield.config(state=tk.NORMAL)
-        self.info_textfield.insert(tk.END, '---Turn On/Off desk lamp---')
-        self.info_textfield.tag_configure("center", justify='center')
-        self.info_textfield.tag_add("center", 1.0, "end")
+        self.info_textfield.insert(tk.END, string)
+        # self.info_textfield.tag_configure("center", justify='center')
+        # self.info_textfield.tag_add("center", 1.0, "end")
         self.info_textfield.insert(tk.END, '\n')
         self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
+
         c.desk_lamp()
 
     def magic_package(self):
+        time = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        string = '---' + str(time) + ': ' + 'Turn On computer---'
         self.info_textfield.config(state=tk.NORMAL)
-        self.info_textfield.insert(tk.END, '---Turn On computer---')
-        self.info_textfield.tag_configure("center", justify='center')
-        self.info_textfield.tag_add("center", 1.0, "end")
+        self.info_textfield.insert(tk.END, string)
+        # self.info_textfield.tag_configure("center", justify='center')
+        # self.info_textfield.tag_add("center", 1.0, "end")
         self.info_textfield.insert(tk.END, '\n')
         self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
