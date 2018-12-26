@@ -5,10 +5,10 @@ import os
 class Model:
 
     def desk_lamp(self):
-        print("Turn On/Off desk lamp")
+        #TODO: get hardware from ikea
+        return False
 
     def magic_package(self):
-        print("Turn On computer")
         os.system('sudo /home/CitizenSwagger/wol.sh')
 
 
@@ -17,22 +17,42 @@ class View(tk.Frame):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-        self.main_canvas = tk.Canvas(parent, bg="dark green")
+        self.main_canvas = tk.Canvas(parent, bg="black", borderwidth=0)
         self.main_canvas.pack(fill=tk.BOTH, expand=True)
 
-        self.desk_lamp_button = tk.Button(self.main_canvas, text="Desk Lamp ON/OFF", command=self.desk_lamp)
-        self.desk_lamp_button.pack(side="right", expand=True, fill=tk.BOTH)
+        self.button_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0)
+        self.button_canvas.pack(side="left", fill=tk.BOTH, expand=True)
 
-        self.computer_button = tk.Button(self.main_canvas, text="Turn On Computer", command=self.magic_package)
-        self.computer_button.pack(side="left", expand=True, fill=tk.BOTH)
+        self.info_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0)
+        self.info_canvas.pack(side="right", fill=tk.BOTH, expand=True)
+
+        self.desk_lamp_button = tk.Button(self.button_canvas, text="Desk Lamp ON/OFF", bg="black", fg="white",
+                                          activebackground="black", activeforeground="white",
+                                          borderwidth=0, command=self.desk_lamp)
+        self.desk_lamp_button.pack(side="top", expand=True, fill=tk.BOTH)
+
+        self.computer_button = tk.Button(self.button_canvas, text="Turn On Computer", bg="black", fg="white",
+                                         activebackground="black", activeforeground="white",
+                                         borderwidth=0, command=self.magic_package)
+        self.computer_button.pack(side="bottom", expand=True, fill=tk.BOTH)
+
+        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="dark green")
+        self.info_textfield.configure(state=tk.DISABLED, borderwidth=0)
+        self.info_textfield.pack(fill=tk.BOTH, expand=True)
 
     def desk_lamp(self):
+        self.info_textfield.config(state=tk.NORMAL)
+        self.info_textfield.insert(tk.END, 'Turn On/Off desk lamp')
+        self.info_textfield.insert(tk.END, '\n')
+        self.info_textfield.config(state=tk.DISABLED)
         c.desk_lamp()
 
     def magic_package(self):
+        self.info_textfield.config(state=tk.NORMAL)
+        self.info_textfield.insert(tk.END, 'Turn On computer')
+        self.info_textfield.insert(tk.END, '\n')
+        self.info_textfield.config(state=tk.DISABLED)
         c.magic_package()
-
-        # <create the rest of your GUI here>
 
 
 class Controller:
@@ -43,7 +63,7 @@ class Controller:
         View(self.root).pack(fill=tk.BOTH, expand=False)
 
     def run(self):
-        self.root.title("RaspberryPi Smarthome Controller")
+        self.root.title("RaspberryPi SmartHome Controller")
         self.root.deiconify()
         self.root.mainloop()
 
