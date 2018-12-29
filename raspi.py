@@ -1,3 +1,10 @@
+"""
+On raspi:
+export DISPLAY=:0
+before starting 
+"""
+
+
 import tkinter as tk
 import os
 import datetime as dt
