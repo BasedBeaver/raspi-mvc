@@ -1,7 +1,7 @@
 """
 On raspi:
 export DISPLAY=:0
-before starting 
+before starting
 """
 
 
