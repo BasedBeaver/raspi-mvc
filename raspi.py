@@ -12,14 +12,13 @@ import threading
 
 
 class PhoneThread (threading.Thread):
-
     def __init__(self):
         threading.Thread.__init__(self)
 
     def run(self):
         while True:
             e = threading.Event()
-            e.wait(timeout=5)
+            e.wait(timeout=10)
             ret = os.system("timeout 0.5 ping -c 1 192.168.0.102")
             if ret != 0:
                 print("Offline")
@@ -95,13 +94,13 @@ class Controller:
         self.root.attributes('-fullscreen', True)
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
-        #thread1 = PhoneThread()
-        #thread1.start()
 
     def run(self):
         self.root.title("RaspberryPi SmartHome Controller")
         self.root.deiconify()
         self.root.mainloop()
+        # thread1 = PhoneThread()
+        # thread1.start()
 
     def desk_lamp(self):
         self.model.desk_lamp()
