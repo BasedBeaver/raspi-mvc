@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8dd8af9-f7b0-4971-ba04-73fbcd779c6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/raspi.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_ping.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ping.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raspi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="285">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding>
                 <element signature="e#54#74#0" expanded="true" />
               </folding>
@@ -26,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_ping.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -55,8 +53,8 @@
         <option value="$PROJECT_DIR$/controller.py" />
         <option value="$PROJECT_DIR$/view.py" />
         <option value="$PROJECT_DIR$/raspi_smarthome_controller.py" />
-        <option value="$PROJECT_DIR$/raspi.py" />
         <option value="$PROJECT_DIR$/test_ping.py" />
+        <option value="$PROJECT_DIR$/raspi.py" />
       </list>
     </option>
   </component>
@@ -100,7 +98,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_ping">
+  <component name="RunManager" selected="Python.view">
     <configuration name="test_ping" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="raspi-mvc" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,8 +143,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_ping" />
         <item itemvalue="Python.view" />
+        <item itemvalue="Python.test_ping" />
       </list>
     </recent_temporary>
   </component>
@@ -189,20 +187,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/model.py" />
     <entry file="file://$PROJECT_DIR$/controller.py" />
-    <entry file="file://$PROJECT_DIR$/raspi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#54#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_ping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/raspi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <element signature="e#54#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

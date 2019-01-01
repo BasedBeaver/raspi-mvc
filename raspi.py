@@ -8,6 +8,19 @@ before starting
 import tkinter as tk
 import os
 import datetime as dt
+import threading
+
+
+class PhoneThread (threading.Thread):
+
+    def __init__(self):
+        threading.Thread.__init__(self)
+
+    def run(self):
+        while True:
+            e = threading.Event()
+            e.wait(timeout=5)
+            print("test")
 
 
 class Model:
@@ -53,8 +66,6 @@ class View(tk.Frame):
         string = '---' + str(time) + ': ' + 'Turn On/Off desk lamp---'
         self.info_textfield.config(state=tk.NORMAL)
         self.info_textfield.insert(tk.END, string)
-        # self.info_textfield.tag_configure("center", justify='center')
-        # self.info_textfield.tag_add("center", 1.0, "end")
         self.info_textfield.insert(tk.END, '\n')
         self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
@@ -66,8 +77,6 @@ class View(tk.Frame):
         string = '---' + str(time) + ': ' + 'Turn On computer---'
         self.info_textfield.config(state=tk.NORMAL)
         self.info_textfield.insert(tk.END, string)
-        # self.info_textfield.tag_configure("center", justify='center')
-        # self.info_textfield.tag_add("center", 1.0, "end")
         self.info_textfield.insert(tk.END, '\n')
         self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
@@ -78,10 +87,12 @@ class Controller:
     def __init__(self):
         self.model = Model()
         self.root = tk.Tk()
-        self.root.config(cursor="none")
-        self.root.attributes('-fullscreen', True)
+        #self.root.config(cursor="none")
+        #self.root.attributes('-fullscreen', True)
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
+        thread1 = PhoneThread()
+        thread1.start()
 
     def run(self):
         self.root.title("RaspberryPi SmartHome Controller")
