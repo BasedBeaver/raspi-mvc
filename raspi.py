@@ -20,7 +20,11 @@ class PhoneThread (threading.Thread):
         while True:
             e = threading.Event()
             e.wait(timeout=5)
-            print("test")
+            ret = os.system("timeout 0.5 ping -c 1 192.168.0.102")
+            if ret != 0:
+                print("Offline")
+            else:
+                print("Online")
 
 
 class Model:
@@ -87,12 +91,12 @@ class Controller:
     def __init__(self):
         self.model = Model()
         self.root = tk.Tk()
-        #self.root.config(cursor="none")
-        #self.root.attributes('-fullscreen', True)
+        self.root.config(cursor="none")
+        self.root.attributes('-fullscreen', True)
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
-        thread1 = PhoneThread()
-        thread1.start()
+        #thread1 = PhoneThread()
+        #thread1.start()
 
     def run(self):
         self.root.title("RaspberryPi SmartHome Controller")
