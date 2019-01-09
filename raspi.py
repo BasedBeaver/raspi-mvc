@@ -29,7 +29,7 @@ class PhoneThread (threading.Thread):
 class Model:
 
     def desk_lamp(self):
-        #TODO: get hardware from ikea
+        # TODO: get hardware from ikea
         return False
 
     def magic_package(self):
