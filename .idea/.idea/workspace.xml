@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8dd8af9-f7b0-4971-ba04-73fbcd779c6c" name="Default Changelist" comment="">
+<<<<<<< Updated upstream:.idea/.idea/workspace.xml
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
@@ -9,6 +10,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/raspi.py" beforeDir="false" afterPath="$PROJECT_DIR$/raspi.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/raspi-mvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/raspi-mvc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes:.idea/workspace.xml
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,10 +27,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raspi.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream:.idea/.idea/workspace.xml
             <state relative-caret-position="520">
               <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
               <folding>
                 <element signature="e#54#74#0" expanded="true" />
+=======
+            <state relative-caret-position="-95">
+              <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding>
+                <element signature="e#94#114#0" expanded="true" />
+>>>>>>> Stashed changes:.idea/workspace.xml
               </folding>
             </state>
           </provider>
@@ -64,10 +77,14 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="1987" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="727" />
     <option name="y" value="27" />
+<<<<<<< Updated upstream:.idea/.idea/workspace.xml
     <option name="width" value="1140" />
+=======
+    <option name="width" value="1193" />
+>>>>>>> Stashed changes:.idea/workspace.xml
     <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
@@ -91,6 +108,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -168,10 +186,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream:.idea/.idea/workspace.xml
     <frame x="1987" y="27" width="1140" height="1053" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19874664" />
+=======
+    <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12021858" />
+>>>>>>> Stashed changes:.idea/workspace.xml
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -193,6 +218,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/model.py" />
     <entry file="file://$PROJECT_DIR$/controller.py" />
+<<<<<<< Updated upstream:.idea/.idea/workspace.xml
     <entry file="file://$PROJECT_DIR$/test_ping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -206,6 +232,14 @@
           <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
           <folding>
             <element signature="e#54#74#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/raspi_smarthome_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding>
+            <element signature="e#94#114#0" expanded="true" />
+>>>>>>> Stashed changes:.idea/workspace.xml
           </folding>
         </state>
       </provider>
