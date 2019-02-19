@@ -9,6 +9,7 @@ import tkinter as tk
 import os
 import datetime as dt
 import threading
+import collections
 
 
 class PhoneThread (threading.Thread):
@@ -27,6 +28,25 @@ class PhoneThread (threading.Thread):
 
 
 class Model:
+
+    info_list = collections.deque()
+
+    def get_info_list(self, choice):
+        info = ''
+        time = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        if choice == 'lamp':
+            info = '---' + str(time) + ': ' + 'Turn On/Off desk lamp---'
+        elif choice == 'magic':
+            info = '---' + str(time) + ': ' + 'Turn On computer---'
+
+        if len(self.info_list) < 25:
+            self.info_list.append(info)
+        else:
+            self.info_list[0] = info
+            self.info_list.rotate(-1)
+
+        return self.info_list
 
     def desk_lamp(self):
         # TODO: get hardware from ikea
@@ -65,22 +85,24 @@ class View(tk.Frame):
         self.info_textfield.pack(fill=tk.BOTH, expand=True)
 
     def desk_lamp(self):
-        time = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        string = '---' + str(time) + ': ' + 'Turn On/Off desk lamp---'
+        info_list = c.get_info_list('lamp')
         self.info_textfield.config(state=tk.NORMAL)
-        self.info_textfield.insert(tk.END, string)
-        self.info_textfield.insert(tk.END, '\n')
+        self.info_textfield.delete(1.0, tk.END)
+        for info in info_list:
+            self.info_textfield.insert(tk.END, info)
+            self.info_textfield.insert(tk.END, '\n')
         self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
 
         c.desk_lamp()
 
     def magic_package(self):
-        time = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        string = '---' + str(time) + ': ' + 'Turn On computer---'
+        info_list = c.get_info_list('magic')
         self.info_textfield.config(state=tk.NORMAL)
-        self.info_textfield.insert(tk.END, string)
-        self.info_textfield.insert(tk.END, '\n')
+        self.info_textfield.delete(1.0, tk.END)
+        for info in info_list:
+            self.info_textfield.insert(tk.END, info)
+            self.info_textfield.insert(tk.END, '\n')
         self.info_textfield.see(tk.END)
         self.info_textfield.config(state=tk.DISABLED)
         c.magic_package()
@@ -107,6 +129,9 @@ class Controller:
 
     def magic_package(self):
         self.model.magic_package()
+
+    def get_info_list(self, choice):
+        return self.model.get_info_list(choice)
 
 
 if __name__ == "__main__":
