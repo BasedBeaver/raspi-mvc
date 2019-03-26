@@ -4,12 +4,29 @@ export DISPLAY=:0
 before starting
 """
 
-
 import tkinter as tk
 import os
 import datetime as dt
 import threading
 import collections
+import speech_recognition as sr
+
+
+class VoiceThread (threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+
+    def run(self):
+        while True:
+            with sr.Microphone() as source:  # set speech source to Microphone
+                print("Speak Anything :")
+                audio = recorder.listen(source)  # listen to the source
+                try:
+                    text = recorder.recognize_google(audio)  # use recognizer to convert our audio into text part
+                    if text == "Jarvis turn on computer":
+                        os.system('sudo /home/CitizenSwagger/wol.sh')
+                except:
+                    continue
 
 
 class PhoneThread (threading.Thread):
@@ -49,7 +66,7 @@ class Model:
         return self.info_list
 
     def desk_lamp(self):
-        # TODO: get hardware from ikea
+        # TODO: get API for hardware
         return False
 
     def magic_package(self):
@@ -121,8 +138,6 @@ class Controller:
         self.root.title("RaspberryPi SmartHome Controller")
         self.root.deiconify()
         self.root.mainloop()
-        # thread1 = PhoneThread()
-        # thread1.start()
 
     def desk_lamp(self):
         self.model.desk_lamp()
@@ -136,4 +151,9 @@ class Controller:
 
 if __name__ == "__main__":
     c = Controller()
+    recorder = sr.Recognizer()
+    voice_thread = VoiceThread()
+    voice_thread.start()
+    # phone_thread = PhoneThread()
+    # phone_thread.start()
     c.run()
