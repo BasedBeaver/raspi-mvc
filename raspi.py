@@ -9,7 +9,7 @@ import os
 import datetime as dt
 import threading
 import collections
-import speech_recognition as sr
+# import speech_recognition as sr
 
 
 class VoiceThread (threading.Thread):
@@ -70,7 +70,8 @@ class Model:
         return False
 
     def magic_package(self):
-        os.system('sudo /home/CitizenSwagger/wol.sh')
+        # os.system('sudo /home/CitizenSwagger/wol.sh')
+        return False;
 
 
 class View(tk.Frame):
@@ -130,7 +131,7 @@ class Controller:
         self.model = Model()
         self.root = tk.Tk()
         self.root.config(cursor="none")
-        self.root.attributes('-fullscreen', True)
+        # self.root.attributes('-fullscreen', True)
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
 
@@ -151,9 +152,9 @@ class Controller:
 
 if __name__ == "__main__":
     c = Controller()
-    recorder = sr.Recognizer()
-    voice_thread = VoiceThread()
-    voice_thread.start()
+    # recorder = sr.Recognizer()
+    # voice_thread = VoiceThread()
+    # voice_thread.start()
     # phone_thread = PhoneThread()
     # phone_thread.start()
     c.run()
