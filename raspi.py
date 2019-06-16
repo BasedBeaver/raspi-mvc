@@ -12,21 +12,21 @@ import collections
 # import speech_recognition as sr
 
 
-class VoiceThread (threading.Thread):
-    def __init__(self):
-        threading.Thread.__init__(self)
-
-    def run(self):
-        while True:
-            with sr.Microphone() as source:  # set speech source to Microphone
-                print("Speak Anything :")
-                audio = recorder.listen(source)  # listen to the source
-                try:
-                    text = recorder.recognize_google(audio)  # use recognizer to convert our audio into text part
-                    if text == "Jarvis turn on computer":
-                        os.system('sudo /home/CitizenSwagger/wol.sh')
-                except:
-                    continue
+# class VoiceThread (threading.Thread):
+#     def __init__(self):
+#         threading.Thread.__init__(self)
+#
+#     def run(self):
+#         while True:
+#             with sr.Microphone() as source:  # set speech source to Microphone
+#                 print("Speak Anything :")
+#                 audio = recorder.listen(source)  # listen to the source
+#                 try:
+#                     text = recorder.recognize_google(audio)  # use recognizer to convert our audio into text part
+#                     if text == "Jarvis turn on computer":
+#                         os.system('sudo /home/CitizenSwagger/wol.sh')
+#                 except:
+#                     continue
 
 
 class PhoneThread (threading.Thread):
@@ -70,8 +70,7 @@ class Model:
         return False
 
     def magic_package(self):
-        # os.system('sudo /home/CitizenSwagger/wol.sh')
-        return False;
+        os.system('sudo /home/CitizenSwagger/wol.sh')
 
 
 class View(tk.Frame):
@@ -131,7 +130,7 @@ class Controller:
         self.model = Model()
         self.root = tk.Tk()
         self.root.config(cursor="none")
-        # self.root.attributes('-fullscreen', True)
+        self.root.attributes('-fullscreen', True)
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
 
