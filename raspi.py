@@ -7,8 +7,8 @@ before starting
 import tkinter as tk
 import os
 import datetime as dt
-import threading
 import collections
+# import threading
 # import speech_recognition as sr
 
 
@@ -29,19 +29,19 @@ import collections
 #                     continue
 
 
-class PhoneThread (threading.Thread):
-    def __init__(self):
-        threading.Thread.__init__(self)
-
-    def run(self):
-        while True:
-            e = threading.Event()
-            e.wait(timeout=10)
-            ret = os.system("timeout 0.5 ping -c 1 192.168.0.102")
-            if ret != 0:
-                print("Offline")
-            else:
-                print("Online")
+# class PhoneThread (threading.Thread):
+#     def __init__(self):
+#         threading.Thread.__init__(self)
+#
+#     def run(self):
+#         while True:
+#             e = threading.Event()
+#             e.wait(timeout=10)
+#             ret = os.system("timeout 0.5 ping -c 1 192.168.0.102")
+#             if ret != 0:
+#                 print("Offline")
+#             else:
+#                 print("Online")
 
 
 class Model:
@@ -53,9 +53,9 @@ class Model:
         time = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         if choice == 'lamp':
-            info = '---' + str(time) + ': ' + 'Turn On/Off desk lamp---'
+            info = '  ' + str(time) + ': ' + 'Turn On/Off desk lamp'
         elif choice == 'magic':
-            info = '---' + str(time) + ': ' + 'Turn On computer---'
+            info = '  ' + str(time) + ': ' + 'Turn On computer'
 
         if len(self.info_list) < 25:
             self.info_list.append(info)
@@ -70,7 +70,8 @@ class Model:
         return False
 
     def magic_package(self):
-        os.system('sudo /home/CitizenSwagger/wol.sh')
+        # os.system('sudo /home/daniel/wol.sh')
+        return False
 
 
 class View(tk.Frame):
@@ -78,28 +79,35 @@ class View(tk.Frame):
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
 
-        self.main_canvas = tk.Canvas(parent, bg="black", borderwidth=0)
+        self.main_canvas = tk.Canvas(parent, bg="black", borderwidth=0, highlightthickness=0)
         self.main_canvas.pack(fill=tk.BOTH, expand=True)
 
-        self.button_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0)
+        self.button_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0, highlightbackground="lime green")
         self.button_canvas.pack(side="left", fill=tk.BOTH, expand=True)
 
-        self.info_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0)
+        self.info_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0, highlightbackground="lime green")
         self.info_canvas.pack(side="right", fill=tk.BOTH, expand=True)
 
-        self.desk_lamp_button = tk.Button(self.button_canvas, text="Desk Lamp ON/OFF", bg="black", fg="white",
-                                          activebackground="black", activeforeground="white",
-                                          borderwidth=0, command=self.desk_lamp)
+        self.weather_canvas = tk.Canvas(self.main_canvas, bg="black", borderwidth=0, highlightbackground="lime green")
+        self.weather_canvas.pack(side="right", fill=tk.BOTH, expand=True)
+
+        self.desk_lamp_button = tk.Button(self.button_canvas, text="Desk Lamp ON/OFF", bg="black", fg="lime green",
+                                          activebackground="black", activeforeground="lime green",
+                                          borderwidth=0, highlightbackground="lime green", command=self.desk_lamp)
         self.desk_lamp_button.pack(side="top", expand=True, fill=tk.BOTH)
 
-        self.computer_button = tk.Button(self.button_canvas, text="Turn On Computer", bg="black", fg="white",
-                                         activebackground="black", activeforeground="white",
-                                         borderwidth=0, command=self.magic_package)
+        self.computer_button = tk.Button(self.button_canvas, text="Turn On Computer", bg="black", fg="lime green",
+                                         activebackground="black", activeforeground="lime green",
+                                         borderwidth=0, highlightbackground="lime green", command=self.magic_package)
         self.computer_button.pack(side="bottom", expand=True, fill=tk.BOTH)
 
-        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="white", font=("Helvetica", 16))
-        self.info_textfield.configure(state=tk.DISABLED, borderwidth=0)
-        self.info_textfield.pack(fill=tk.BOTH, expand=True)
+        self.info_textfield = tk.Text(self.info_canvas, bg="black", fg="lime green", font=("Helvetica", 16))
+        self.info_textfield.configure(state=tk.DISABLED, borderwidth=0, highlightbackground="lime green")
+        self.info_textfield.pack(fill=tk.BOTH, expand=False)
+
+        self.weather_textfield = tk.Text(self.weather_canvas, bg="black", fg="lime green", font=("Helvetica", 16))
+        self.weather_textfield.configure(state=tk.DISABLED, borderwidth=0, highlightbackground="lime green")
+        self.weather_textfield.pack(fill=tk.BOTH, expand=False)
 
     def desk_lamp(self):
         info_list = c.get_info_list('lamp')
@@ -130,7 +138,7 @@ class Controller:
         self.model = Model()
         self.root = tk.Tk()
         self.root.config(cursor="none")
-        self.root.attributes('-fullscreen', True)
+        # self.root.attributes('-fullscreen', True)
         self.root.geometry("300x200")
         View(self.root).pack(fill=tk.BOTH, expand=False)
 
